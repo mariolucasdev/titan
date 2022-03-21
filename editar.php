@@ -11,7 +11,7 @@ use \App\Entity\Produto;
 
 //Validação do Get
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-  header('Locarion: index.php?status=error');
+  header('location: index.php?status=error');
   exit;
 }
 
