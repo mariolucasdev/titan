@@ -165,12 +165,4 @@ class Database
     //Retorna sucesso
     return true;
   }
-
-
-
-  
-
-
-
-  
 }
