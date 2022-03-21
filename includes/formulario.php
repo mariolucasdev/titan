@@ -20,14 +20,14 @@
             <?php if($obProduto->COR): ?>
               <?php if($obProduto->COR == 'AZUL'): ?>
                 <option selected value="AZUL"> AZUL </option>
-              <?php elseif($obProduto->COR == 'VERMELHOR'): ?>
-                <option selected value="VERMELHOR"> VERMELHOR </option>
+              <?php elseif($obProduto->COR == 'VERMELHO'): ?>
+                <option selected value="VERMELHO"> VERMELHO </option>
               <?php else: ?>
                 <option selected value="AMARELO"> AMARELO </option>
               <?php endif ?>
             <?php else: ?>
                 <option value="AZUL"> AZUL </option>
-                <option value="VERMELHOR"> VERMELHOR </option>
+                <option value="VERMELHO"> VERMELHO </option>
                 <option value="AMARELO"> AMARELO </option>
               <?php endif ?>
           </select>

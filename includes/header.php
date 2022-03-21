@@ -9,7 +9,7 @@
   </head>
 <body>
   <div class="jumbotron text-center bg-primary text-white">
-    <h1 class="font-weight-bold"> Desafio Titan by Mário Lucas </h1>
+    <h1 class="font-weight-bold"> Desafio Titan | Mário Lucas </h1>
   </div>
   <div class="container">
     

@@ -89,9 +89,18 @@ class Preco
   }
 
   /**
+   * Método responsável por excluir preço
+   * @return boolean
+   */
+  public function excluirPreco()
+  {
+    return (new Database('preco'))->delete('IDPRECO = '.$this->IDPRECO);
+  }
+
+  /**
    * Helper responsável por converter preco, trocando a vírgula por ponto (decimal)
    */
-  public function converterPreco($preco)
+  public static function converterPreco($preco)
   {
     return str_replace(',', '.', $preco);
   }

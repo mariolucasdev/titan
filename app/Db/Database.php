@@ -120,16 +120,16 @@ class Database
       $where = strlen($where) ? 'WHERE '.$where : null;
       $order = strlen($order) ? 'ORDER BY '.$order : null;
       $limit = strlen($limit) ? 'LIMIT '.$limit : null;
-      $join = strlen($join) ? 'JOIN '.$join : null;
+      $join  = strlen($join) ? 'JOIN '.$join : null;
       
       // Montagem da Query
       $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$join.' '.$where.' '.$order.' '.$limit;
 
-      //Executa a query
+      // Executa a query
       return $this->execute($query);
    }
 
-   /**
+    /**
    * Método responsável por executar atualização no banco de dados
    * @param string $where
    * @param array $values [$field => $value]
@@ -145,8 +145,31 @@ class Database
 
     // Executar query
     $this->execute($query, array_values($values));
+
+    //Retorna sucesso
     return true;
   }
+
+  /**
+   * Método responsável por executar atualização no banco de dados
+   * @param string $where
+   * @return boolean
+   */
+  public function delete($where)
+  {
+    // Monta a query
+    $query = 'DELETE FROM '.$this->table.' WHERE '.$where;
+
+    // Execura a query
+    $this->execute($query);
+    
+    //Retorna sucesso
+    return true;
+  }
+
+
+
+  
 
 
 

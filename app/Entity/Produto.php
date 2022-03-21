@@ -72,6 +72,15 @@ class Produto extends Preco
   }
 
   /**
+   * Método reponsável por excluir o produto do banco de dados
+   * @return boolean
+   */
+  public function excluir()
+  {
+    return (new Database('produtos'))->delete('IDPROD = '.$this->IDPROD);
+  }
+
+  /**
    * Método estático para busca de produtos
    * @param string $fields
    * @param string $where
@@ -102,5 +111,36 @@ class Produto extends Preco
     return (new Database('produtos'))
       ->select($fields, $where, null, null, $join)
       ->fetchObject(self::class);
+  }
+
+  /**
+   * Helper para verificar desconto de acordo com as cores
+   * @return array
+   */
+  public static function calculateDiscounts()
+  {
+    $arrDiscount = array(
+      'VERMELHO' => 20,
+      'AZUL' => 20,
+      'AMARELO' => 10,
+    );
+
+    return $arrDiscount;
+  }
+
+  
+  /**
+   * Helper para estilizar de acordo com a cor
+   * @return array
+   */
+  public static function getColors()
+  {
+    $arrColors = array(
+      'VERMELHO' => 'danger',
+      'AZUL' => 'primary',
+      'AMARELO' => 'warning',
+    );
+
+    return $arrColors;
   }
 }
