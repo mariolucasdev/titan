@@ -1,5 +1,3 @@
-DROP DATABASE IF EXISTS titan_db;
-
 CREATE DATABASE IF NOT EXISTS titan_db;
 USE titan_db;
 
