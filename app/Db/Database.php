@@ -129,5 +129,26 @@ class Database
       return $this->execute($query);
    }
 
+   /**
+   * Método responsável por executar atualização no banco de dados
+   * @param string $where
+   * @param array $values [$field => $value]
+   * @return boolean
+   */
+  public function update($where, $values)
+  {
+    // Dados da query 
+    $fields = array_keys($values);
+    
+    // Montar query
+    $query = 'UPDATE '.$this->table.' SET '.implode('=?,', $fields).'=? WHERE '.$where;
+
+    // Executar query
+    $this->execute($query, array_values($values));
+    return true;
+  }
+
+
+
   
 }

@@ -32,7 +32,7 @@ class Preco
    */ 
   public function setPreco($preco)
   {
-    $this->preco = $preco;
+    $this->preco = $this->converterPreco($preco);
 
     return $this;
   }
@@ -62,13 +62,37 @@ class Preco
   */
   public function cadastrarPreco()
   {
-    $obDatabase = new Database('`preco`');
-
+    $obDatabase = new Database('preco');
+    
     $arrPreco = array(
       'IDPROD' => $this->idProduto,
       'PRECO' => $this->preco,
     );
-
+    
     $obDatabase->insert($arrPreco);
+  }
+  
+  /**
+   * Método responsável por alterar o preco
+   */
+  public function atualizarPreco()
+  {
+    $obDatabase = new Database('preco');
+
+    $arrPreco = array(
+      'PRECO' => $this->converterPreco($this->preco)
+    );
+
+    $obDatabase->update('IDPRECO = '.$this->IDPROD, $arrPreco);
+
+    return true;
+  }
+
+  /**
+   * Helper responsável por converter preco, trocando a vírgula por ponto (decimal)
+   */
+  public function converterPreco($preco)
+  {
+    return str_replace(',', '.', $preco);
   }
 }
