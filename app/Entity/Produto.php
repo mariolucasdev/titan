@@ -127,7 +127,6 @@ class Produto extends Preco
 
     return $arrDiscount;
   }
-
   
   /**
    * Helper para estilizar de acordo com a cor
